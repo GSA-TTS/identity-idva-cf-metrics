@@ -4,7 +4,7 @@ applications:
   memory: 100M
   instances: 1
   routes:
-    route: identity-give-cf-metrics-((ENVIRONMENT_NAME)).apps.internal
+    - route: identity-give-cf-metrics-((ENVIRONMENT_NAME)).apps.internal
   buildpacks:
     - go_buildpack
   stack: cflinuxfs3
