@@ -1,0 +1,69 @@
+---
+# This workflow will deploy the application to a target environment
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+    paths-ignore:
+      - '**.md'  # All markdown files in the repository
+
+jobs:
+  deploy:
+    if: github.repository_owner == '18F'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install CloudFoundry CLI
+        run: |
+          curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=v7&source=github" | sudo tar -zx --directory=/usr/local/bin
+          cf --version
+
+      - name: Setup CF CLI auth
+        run: |
+          cf api https://api.fr.cloud.gov
+          cf auth ${{ secrets.CF_USERNAME }} ${{ secrets.CF_PASSWORD }}
+
+      - name: Determine deployment target
+        id: deployment-target
+        env:
+          GITHUB_REF: ${{ github.ref }}
+        run: |
+          # Use the Github reference to determine environment values
+          if [[ $GITHUB_REF == "refs/heads/main" ]]; then
+              # Pushes to main are deployed to dev
+              target_environment=give-dev
+              environment_name=dev
+              cf_user=${{ secrets.CF_DEV_USER }}
+              cf_pass=${{ secrets.CF_DEV_PASS }}
+          elif [[ $GITHUB_REF =~ refs/tags/* ]]; then
+              # Tags on main are deployed to test
+              target_environment=give-test
+              environment_name=dev
+              cf_user=${{ secrets.CF_TEST_USER }}
+              cf_pass=${{ secrets.CF_TEST_PASS }}
+          else
+              echo 'Unknown deployment target'
+              exit 1
+          fi
+
+          # Set the outputs for this step
+          echo "::set-output name=SPACE::$target_environment"
+          echo "::set-output name=ENVIRONMENT_NAME::$environment_name"
+          echo "::set-output name=CF_USER::$cf_user"
+          echo "::set-output name=CF_PASS::$cf_pass"
+          echo "Deploying to $target_environment"
+
+      - name: Set CF CLI Target
+        run: cf target -o ${{ secrets.CF_ORG }} -s ${{ steps.deployment-target.outputs.SPACE }}
+
+      - name: Deploy application
+        run: cf push
+          --var ENVIRONMENT_NAME=${{ steps.deployment-target.outputs.ENVIRONMENT_NAME}}
+          --var CF_USER=${{ steps.deployment-target.outputs.CF_USER }}
+          --var CF_PASS=${{ steps.deployment-target.outputs.CF_PASS }}

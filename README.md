@@ -1,3 +1,6 @@
+# Note
+Copy of https://github.com/alphagov/paas-prometheus-exporter for exporting application metrics in cloud.gov
+
 # paas-prometheus-exporter
 
 This application consumes application and service metrics from Cloud Foundry. All the metrics are exposed on a  `/metrics` endpoint for a Prometheus server to scrape.
