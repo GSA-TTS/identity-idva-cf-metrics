@@ -44,7 +44,7 @@ jobs:
           elif [[ $GITHUB_REF =~ refs/tags/* ]]; then
               # Tags on main are deployed to test
               target_environment=give-test
-              environment_name=dev
+              environment_name=test
               cf_user=${{ secrets.CF_TEST_USER }}
               cf_pass=${{ secrets.CF_TEST_PASS }}
           else
