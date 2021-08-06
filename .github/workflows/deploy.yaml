@@ -29,9 +29,9 @@ jobs:
       - name: Deploy application
         run: |-
           target_env=${{ steps.cf-setup.outputs.target_environment }}
-          audit_user="cf_audit_user_$target_env"
-          audit_pass="cf_audit_pass_$target_env"
+          echo "audit_user=cf_audit_user_$target_env" >> $GITHUB_ENV
+          echo "audit_pass=cf_audit_pass_$target_env" >> $GITHUB_ENV
           cf push \
             --var ENVIRONMENT_NAME="$target_env" \
-            --var CF_USER=${{ secrets[$audit_user] }} \
-            --var CF_PASS=${{ secrets[$audit_pass] }}
+            --var CF_USER=${{ secrets[env.audit_user] }} \
+            --var CF_PASS=${{ secrets[env.audit_pass] }}
