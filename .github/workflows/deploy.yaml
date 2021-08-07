@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: 18F/identity-give-cf-setup@v1
+      - uses: 18F/identity-give-cf-setup@v2
         id: cf-setup
         with:
           cf-username: ${{ secrets.CF_USERNAME }}
@@ -28,8 +28,7 @@ jobs:
 
       - name: Set audit user credentials
         run: |
-          target_env=${{ steps.cf-setup.outputs.target-environment }}
-          target_env_upper=$(echo $target_env | tr '[:lower:]' '[:upper:]')
+          target_env_upper=${{ steps.cf-setup.outputs.target-environment-upper }}
           echo "audit_user=CF_AUDIT_USER_$target_env_upper" >> $GITHUB_ENV
           echo "audit_pass=CF_AUDIT_PASS_$target_env_upper" >> $GITHUB_ENV
 
