@@ -4,7 +4,7 @@ applications:
     memory: 64MB
     instances: 1
     routes:
-      - route: identity-give-cf-metrics-((ENVIRONMENT_NAME)).apps.internal
+      - route: identity-idva-cf-metrics-((ENVIRONMENT_NAME)).apps.internal
     buildpacks:
       - go_buildpack
     stack: cflinuxfs3
