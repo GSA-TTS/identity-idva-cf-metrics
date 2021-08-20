@@ -1,3 +1,4 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/ecde824dbc9fc332b619/maintainability)](https://codeclimate.com/github/18F/identity-give-cf-metrics/maintainability)
 # Note
 Copy of https://github.com/alphagov/paas-prometheus-exporter for exporting application metrics in cloud.gov
 
