@@ -5,7 +5,7 @@ go 1.15
 require (
 	code.cloudfoundry.org/go-loggregator v7.4.0+incompatible
 	code.cloudfoundry.org/log-cache v2.3.1+incompatible
-	code.cloudfoundry.org/rfc5424 v0.0.0-20180905210152-236a6d29298a // indirect
+	code.cloudfoundry.org/rfc5424 v0.0.0-20201103192249-000122071b78 // indirect
 	github.com/apoydence/eachers v0.0.0-20181020210610-23942921fe77 // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cloudfoundry-community/go-cfclient v0.0.0-20210621174645-7773f7e22665
