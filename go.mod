@@ -17,7 +17,6 @@ require (
 	github.com/elazarl/goproxy/ext v0.0.0-20210801061803-8e322dfb79c4 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
-	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/jarcoal/httpmock v1.0.8
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/onsi/ginkgo v1.16.4
@@ -26,5 +25,6 @@ require (
 	github.com/prometheus/client_golang v1.10.0
 	github.com/prometheus/client_model v0.2.0
 	golang.org/x/oauth2 v0.0.0-20210819190943-2bc19b11175f
+	google.golang.org/grpc v1.40.0 // indirect
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 )
