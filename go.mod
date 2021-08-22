@@ -16,7 +16,7 @@ require (
 	github.com/elazarl/goproxy v0.0.0-20210801061803-8e322dfb79c4 // indirect
 	github.com/elazarl/goproxy/ext v0.0.0-20210801061803-8e322dfb79c4 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/gorilla/websocket v1.4.1 // indirect
+	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.11.2 // indirect
 	github.com/jarcoal/httpmock v1.0.8
 	github.com/mailru/easyjson v0.7.0 // indirect
