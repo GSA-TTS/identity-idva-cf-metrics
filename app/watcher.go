@@ -245,8 +245,8 @@ func (w *Watcher) processLogMessage(logMessage *sonde_events.LogMessage) error {
 		return nil
 	}
 
-    // Universal app crash log begins with "Process has crashed with type:"
-	if bytes.HasPrefix(logMessage.Message, []byte("Process has crashed with type:")) {
+    // Universal app crash log begins with "Process has crashed"
+	if bytes.HasPrefix(logMessage.Message, []byte("Process has crashed")) {
         // No meta information is available via this log
         // All crashes are associated with first instance available
         w.MetricsForInstance[0].Crash.Inc()
