@@ -3,7 +3,6 @@ package app
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
 	"time"
@@ -245,37 +244,13 @@ func (w *Watcher) processLogMessage(logMessage *sonde_events.LogMessage) error {
 	if logMessage.GetSourceType() != "API" || logMessage.GetMessageType() != sonde_events.LogMessage_OUT {
 		return nil
 	}
-	if !bytes.HasPrefix(logMessage.Message, []byte("App instance exited with guid ")) {
-		return nil
-	}
 
-	payloadStartMarker := []byte(" payload: {")
-	payloadStartMarkerPosition := bytes.Index(logMessage.Message, payloadStartMarker)
-	if payloadStartMarkerPosition < 0 {
-		return fmt.Errorf("unable to find start of payload in app instance exit log: %s", logMessage.Message)
-	}
-	payloadStartPosition := payloadStartMarkerPosition + len(payloadStartMarker) - 1
-
-	payload := logMessage.Message[payloadStartPosition:]
-	payloadAsJson := bytes.Replace(payload, []byte("=>"), []byte(":"), -1)
-
-	var logMessagePayload struct {
-		Index  int    `json:"index"`
-		Reason string `json:"reason"`
-	}
-	err := json.Unmarshal(payloadAsJson, &logMessagePayload)
-	if err != nil {
-		return fmt.Errorf("unable to parse payload in app instance exit log: %s", err)
-	}
-
-	if logMessagePayload.Reason != "CRASHED" {
-		return nil
-	}
-
-	index := logMessagePayload.Index
-	if index < len(w.MetricsForInstance) {
-		w.MetricsForInstance[index].Crash.Inc()
-	}
+    // Universal app crash log begins with "Process has crashed"
+	if bytes.HasPrefix(logMessage.Message, []byte("Process has crashed")) {
+        // No meta information is available via this log
+        // All crashes are associated with first instance available
+        w.MetricsForInstance[0].Crash.Inc()
+    }
 	return nil
 }
 
