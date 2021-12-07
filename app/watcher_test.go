@@ -125,10 +125,7 @@ var _ = Describe("AppWatcher", func() {
 				EventType: &envelopeLogMessageEventType,
 				LogMessage: &sonde_events.LogMessage{
 					Message: []byte(fmt.Sprintf(
-						"App instance exited with guid 4630f6ba-8ddc-41f1-afea-1905332d6660 payload: "+
-							"{\"instance\"=>\"bc932892-f191-4fe2-60c3-7090\", \"index\"=>%d, \"reason\"=>\"CRASHED\","+
-							" \"exit_description\"=>\"APP/PROC/WEB: Exited with status 137\", \"crash_count\"=>1,"+
-							" \"crash_timestamp\"=>1512569260335558205, \"version\"=>\"d24b0422-0c88-4692-bf52-505091890e7d\"}",
+                        "Process has crashed with type: \"web\"",
 						instanceIndex),
 					),
 					MessageType:    &logMessageOutMessageType,
@@ -185,18 +182,6 @@ var _ = Describe("AppWatcher", func() {
 					EventType: &envelopeLogMessageEventType,
 					LogMessage: &sonde_events.LogMessage{
 						Message:        []byte("Updated app with guid 4630f6ba-8ddc-41f1-afea-1905332d6660 ({\"state\"=>\"STOPPED\"})"),
-						MessageType:    &logMessageOutMessageType,
-						AppId:          str("4630f6ba-8ddc-41f1-afea-1905332d6660"),
-						SourceType:     str("API"),
-						SourceInstance: str("1"),
-					},
-				},
-				// no payload
-				sonde_events.Envelope{
-					Origin:    str("cloud_controller"),
-					EventType: &envelopeLogMessageEventType,
-					LogMessage: &sonde_events.LogMessage{
-						Message:        []byte("Process has crashed with type: \"web\""),
 						MessageType:    &logMessageOutMessageType,
 						AppId:          str("4630f6ba-8ddc-41f1-afea-1905332d6660"),
 						SourceType:     str("API"),
