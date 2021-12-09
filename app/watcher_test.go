@@ -2,7 +2,6 @@ package app_test
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/alphagov/paas-prometheus-exporter/app"
@@ -124,10 +123,7 @@ var _ = Describe("AppWatcher", func() {
 				Origin:    str("cloud_controller"),
 				EventType: &envelopeLogMessageEventType,
 				LogMessage: &sonde_events.LogMessage{
-					Message: []byte(fmt.Sprintf(
-                        "Process has crashed with type: \"web\"",
-						instanceIndex),
-					),
+					Message:        []byte("Process has crashed with type: \"web\""),
 					MessageType:    &logMessageOutMessageType,
 					AppId:          str("4630f6ba-8ddc-41f1-afea-1905332d6660"),
 					SourceType:     str("API"),
@@ -253,7 +249,7 @@ var _ = Describe("AppWatcher", func() {
 			Entry("increments the 5xx request metric", "5xx", int32(507)),
 		)
 
-		It("does not mutate the HTTP metrics when receiving an HTTPStopStart message with peerType = Server", func(){
+		It("does not mutate the HTTP metrics when receiving an HTTPStopStart message with peerType = Server", func() {
 			eventType := sonde_events.Envelope_HttpStartStop
 			startTimestamp := int64(0)
 			stopTimestamp := int64(11 * time.Millisecond)
@@ -266,11 +262,11 @@ var _ = Describe("AppWatcher", func() {
 				EventType: &eventType,
 				HttpStartStop: &sonde_events.HttpStartStop{
 					StartTimestamp: &startTimestamp,
-					StopTimestamp: &stopTimestamp,
-					PeerType: &serverPeerType,
-					Method: &getMethod,
-					Uri: str("/"),
-					StatusCode: &statusCode,
+					StopTimestamp:  &stopTimestamp,
+					PeerType:       &serverPeerType,
+					Method:         &getMethod,
+					Uri:            str("/"),
+					StatusCode:     &statusCode,
 				},
 			}
 
@@ -278,11 +274,11 @@ var _ = Describe("AppWatcher", func() {
 				EventType: &eventType,
 				HttpStartStop: &sonde_events.HttpStartStop{
 					StartTimestamp: &startTimestamp,
-					StopTimestamp: &stopTimestamp,
-					PeerType: &clientPeerType,
-					Method: &getMethod,
-					Uri: str("/"),
-					StatusCode: &statusCode,
+					StopTimestamp:  &stopTimestamp,
+					PeerType:       &clientPeerType,
+					Method:         &getMethod,
+					Uri:            str("/"),
+					StatusCode:     &statusCode,
 				},
 			}
 
@@ -298,7 +294,7 @@ var _ = Describe("AppWatcher", func() {
 			sondeEventChan <- &serverMessageEnvelope
 			sondeEventChan <- &clientMessageEnvelope
 
-			Eventually(func() float64{
+			Eventually(func() float64 {
 				total2xxCount := float64(0)
 				for _, metric := range appWatcher.MetricsForInstance {
 					requestCounter, _ := metric.Requests.GetMetricWithLabelValues("2xx")

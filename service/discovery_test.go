@@ -214,7 +214,7 @@ var _ = Describe("Service discovery", func() {
 
 		discovery.Start(ctx, errChan)
 
-		Eventually(fakeClient.NewLogCacheClientCallCount, 10 * time.Second).Should(Equal(2))
+		Eventually(fakeClient.NewLogCacheClientCallCount, 10*time.Second).Should(Equal(2))
 
 		Eventually(func() *dto.Metric {
 			return test.FindMetric(registry, map[string]string{

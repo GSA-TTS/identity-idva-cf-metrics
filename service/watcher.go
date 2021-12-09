@@ -104,7 +104,7 @@ func (w *Watcher) mainLoop(ctx context.Context) error {
 }
 
 func (w *Watcher) processLogCacheEvents(ctx context.Context) error {
-	envelopes, err := readLogsWithRetry(w.logcacheClient, ctx, w.service.Guid, time.Now().Add(-15*time.Minute), 3, 1 * time.Second)
+	envelopes, err := readLogsWithRetry(w.logcacheClient, ctx, w.service.Guid, time.Now().Add(-15*time.Minute), 3, 1*time.Second)
 	if err != nil {
 		return fmt.Errorf("failed to read the log-cache logs for service %s after all retries: %s", w.service.Guid, err)
 	}

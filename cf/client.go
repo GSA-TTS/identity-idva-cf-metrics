@@ -212,7 +212,7 @@ func getTokenWithRetry(tokenSource oauth2.TokenSource, maxRetries int, fallOffSe
 		if err != nil {
 			log.Printf("getting token failed (attempt %d of %d). Retrying. Error: %s", i+1, maxRetries, err.Error())
 
-			sleep := time.Duration(fallOffSeconds.Seconds() * float64(i + 1))
+			sleep := time.Duration(fallOffSeconds.Seconds() * float64(i+1))
 			time.Sleep(sleep)
 			continue
 		}
