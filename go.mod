@@ -20,7 +20,7 @@ require (
 	github.com/jarcoal/httpmock v1.0.8
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.11.0
+	github.com/onsi/gomega v1.17.0
 	github.com/poy/eachers v0.0.0-20181020210610-23942921fe77 // indirect
 	github.com/prometheus/client_golang v1.10.0
 	github.com/prometheus/client_model v0.2.0
