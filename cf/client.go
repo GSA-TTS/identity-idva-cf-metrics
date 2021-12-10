@@ -9,7 +9,7 @@ import (
 
 	"golang.org/x/oauth2"
 
-	logcache "code.cloudfoundry.org/log-cache/pkg/client"
+	logcache "code.cloudfoundry.org/go-log-cache"
 	cfclient "github.com/cloudfoundry-community/go-cfclient"
 	"github.com/cloudfoundry/noaa/consumer"
 )

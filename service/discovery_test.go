@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"code.cloudfoundry.org/go-loggregator/rpc/loggregator_v2"
+	"code.cloudfoundry.org/go-loggregator/v8/rpc/loggregator_v2"
 	"github.com/alphagov/paas-prometheus-exporter/cf"
 	"github.com/alphagov/paas-prometheus-exporter/test"
 
