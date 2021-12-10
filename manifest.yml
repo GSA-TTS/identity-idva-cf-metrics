@@ -9,7 +9,6 @@ applications:
       - go_buildpack
     stack: cflinuxfs3
     env:
-      GOPACKAGENAME: github.com/alphagov/paas-prometheus-exporter
       API_ENDPOINT: https://api.fr.cloud.gov
       USERNAME: ((CF_USER))
       PASSWORD: ((CF_PASS))
