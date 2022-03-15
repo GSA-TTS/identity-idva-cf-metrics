@@ -2,7 +2,7 @@
 applications:
   - name: cf-metrics
     memory: 64MB
-    instances: 1
+    instances: 2
     routes:
       - route: identity-idva-cf-metrics-((ENVIRONMENT_NAME)).apps.internal
     buildpacks:
