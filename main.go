@@ -37,8 +37,6 @@ var (
 	prometheusBindPort = kingpin.Flag("prometheus-bind-port", "The port to bind to for prometheus metrics.").Default("8080").OverrideDefaultFromEnvar("PORT").Int()
 	authUsername       = kingpin.Flag("auth-username", "HTTP basic auth username; leave blank to disable basic auth").Default("").OverrideDefaultFromEnvar("AUTH_USERNAME").String()
 	authPassword       = kingpin.Flag("auth-password", "HTTP basic auth password").Default("").OverrideDefaultFromEnvar("AUTH_PASSWORD").String()
-	certFile           = kingpin.Flag("cert-file", "Certificate file for HTTPS").Default("").OverrideDefaultFromEnvar("CF_INSTANCE_CERT").String()
-	keyFile            = kingpin.Flag("key-file", "Key file for HTTPS").Default("").OverrideDefaultFromEnvar("CF_INSTANCE_KEY").String()
 )
 
 type ServiceDiscovery interface {
@@ -138,7 +136,7 @@ func main() {
 	server := buildHTTPServer(*prometheusBindPort, promhttp.Handler(), *authUsername, *authPassword)
 
 	go func() {
-		err := server.ListenAndServeTLS(*certFile, *keyFile)
+		err := server.ListenAndServe()
 		if err != nil {
 			errChan <- err
 		}
