@@ -12,7 +12,7 @@ require (
 	github.com/elazarl/goproxy v0.0.0-20220328115640-894aeddb713e // indirect
 	github.com/elazarl/goproxy/ext v0.0.0-20220328115640-894aeddb713e // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
-	github.com/jarcoal/httpmock v1.0.8
+	github.com/jarcoal/httpmock v1.1.0
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.19.0
