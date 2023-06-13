@@ -9,7 +9,7 @@ require (
 	github.com/cloudfoundry-community/go-cfenv v1.18.0
 	github.com/cloudfoundry/noaa v2.1.1-0.20190110210640-5ce49363dfa6+incompatible
 	github.com/cloudfoundry/sonde-go v0.0.0-20230412182205-eaf74d09b55a
-	github.com/jarcoal/httpmock v1.2.0
+	github.com/jarcoal/httpmock v1.3.0
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.19.0
 	github.com/prometheus/client_golang v1.15.1
@@ -26,6 +26,8 @@ require (
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/elazarl/goproxy v0.0.0-20221015165544-a0805db90819 // indirect
+	github.com/elazarl/goproxy/ext v0.0.0-20221015165544-a0805db90819 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
