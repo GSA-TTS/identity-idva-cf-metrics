@@ -7,8 +7,10 @@ applications:
       - route: identity-idva-cf-metrics-((ENVIRONMENT_NAME)).apps.internal
     buildpacks:
       - go_buildpack
-    stack: cflinuxfs3
+    stack: cflinuxfs4
     env:
       API_ENDPOINT: https://api.fr.cloud.gov
       USERNAME: ((CF_USER))
       PASSWORD: ((CF_PASS))
+    services:
+      - outbound-proxy
