@@ -12,5 +12,3 @@ applications:
       API_ENDPOINT: https://api.fr.cloud.gov
       USERNAME: ((CF_USER))
       PASSWORD: ((CF_PASS))
-    services:
-      - outbound-proxy
