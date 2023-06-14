@@ -27,6 +27,7 @@ jobs:
           cf-username: ${{ secrets.CF_USERNAME }}
           cf-password: ${{ secrets.CF_PASSWORD }}
           cf-org: ${{ secrets.CF_ORG }}
+          space-suffix: "-public"
 
       - name: Set audit user credentials
         run: |
@@ -41,7 +42,3 @@ jobs:
             --var ENVIRONMENT_NAME="$target_env" \
             --var CF_USER=${{ secrets[env.audit_user] }} \
             --var CF_PASS=${{ secrets[env.audit_pass] }}
-
-      - name: Add network policies
-        run: |
-          cf add-network-policy cf-metrics outbound-proxy -s ${{ steps.cf-setup.outputs.target-environment }}-public --protocol tcp --port 8080
