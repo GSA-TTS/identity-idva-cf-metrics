@@ -19,6 +19,7 @@ import (
 	"github.com/alphagov/paas-prometheus-exporter/util"
 
 	"github.com/cloudfoundry-community/go-cfclient/v2"
+	cfenv "github.com/cloudfoundry-community/go-cfenv"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/alecthomas/kingpin/v2"
 )
