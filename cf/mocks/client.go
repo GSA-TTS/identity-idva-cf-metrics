@@ -5,7 +5,7 @@ import (
 	"sync"
 
 	"github.com/alphagov/paas-prometheus-exporter/cf"
-	cfclient "github.com/cloudfoundry-community/go-cfclient"
+	cfclient "github.com/cloudfoundry-community/go-cfclient/v2"
 )
 
 type FakeClient struct {
