@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/alphagov/paas-prometheus-exporter/cf"
-	cfclient "github.com/cloudfoundry-community/go-cfclient"
+	cfclient "github.com/cloudfoundry-community/go-cfclient/v2"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

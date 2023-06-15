@@ -9,9 +9,9 @@ import (
 
 	"golang.org/x/oauth2"
 
-	logcache "code.cloudfoundry.org/go-log-cache"
-	cfclient "github.com/cloudfoundry-community/go-cfclient"
-	"github.com/cloudfoundry/noaa/consumer"
+	logcache "code.cloudfoundry.org/go-log-cache/v2"
+	cfclient "github.com/cloudfoundry-community/go-cfclient/v2"
+	"github.com/cloudfoundry/noaa/v2/consumer"
 )
 
 type ServiceInstance struct {

@@ -3,7 +3,7 @@ package service_test
 import (
 	"time"
 
-	"code.cloudfoundry.org/go-loggregator/v8/rpc/loggregator_v2"
+	"code.cloudfoundry.org/go-loggregator/v9/rpc/loggregator_v2"
 )
 
 var metricTime = time.Now().Add(-5 * time.Minute)
