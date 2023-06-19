@@ -1,6 +1,6 @@
 cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-code.cloudfoundry.org/go-log-cache/v2 v2.0.1 h1:+Guw6HlPTm3F8+tcAUMNRZhTw0s0JwXd3q6yVV5a3KA=
-code.cloudfoundry.org/go-log-cache/v2 v2.0.1/go.mod h1:qqEh6c5CtyZSaUO9L83WSqv0O3SyDSR4P5Kl60zCEJk=
+code.cloudfoundry.org/go-log-cache/v2 v2.0.2 h1:5v/+8Xa8yZtpcH7sKlsipiWu43aQzF3dqzS4oRZG274=
+code.cloudfoundry.org/go-log-cache/v2 v2.0.2/go.mod h1:Z6PNbfRBE8ZLKlJcMJm7U7amlumM/xQESaoeOTFgbU0=
 code.cloudfoundry.org/go-loggregator/v9 v9.0.5 h1:3WrojABw2Xqv6f0nVoDPgrliSHtpwyJv4p3HpV9EBeI=
 code.cloudfoundry.org/go-loggregator/v9 v9.0.5/go.mod h1:gtMVfsHp/P0HxyzcFHsSfjcU9p1iflOvBnBk9JmiBSk=
 github.com/Masterminds/semver v1.4.2/go.mod h1:MB6lktGJrhw8PrUyiEoblNEGEQ+RzHPF078ddwwvV3Y=
@@ -93,7 +93,7 @@ github.com/onsi/ginkgo v1.8.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+W
 github.com/onsi/ginkgo v1.12.1/go.mod h1:zj2OWP4+oCPe1qIXoGWkgMRwljMUYCdkwsT2108oapk=
 github.com/onsi/ginkgo v1.16.5 h1:8xi0RTUf59SOSfEtZMvwTvXYMzG4gV23XVHOZiXNtnE=
 github.com/onsi/ginkgo v1.16.5/go.mod h1:+E8gABHa3K6zRBolWtd+ROzc/U5bkGt0FwiG042wbpU=
-github.com/onsi/ginkgo/v2 v2.9.7 h1:06xGQy5www2oN160RtEZoTvnP2sPhEfePYmCDc2szss=
+github.com/onsi/ginkgo/v2 v2.11.0 h1:WgqUCUt/lT6yXoQ8Wef0fsNn5cAuMK7+KT9UFRz2tcU=
 github.com/onsi/gomega v1.5.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
 github.com/onsi/gomega v1.7.1/go.mod h1:XdKZgCCFLUoM/7CFJVPcG8C1xQ1AJ0vpAezJrB7JYyY=
 github.com/onsi/gomega v1.10.1/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1ybHNo=

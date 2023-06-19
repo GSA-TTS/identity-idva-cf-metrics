@@ -3,7 +3,7 @@ module github.com/alphagov/paas-prometheus-exporter
 go 1.20
 
 require (
-	code.cloudfoundry.org/go-log-cache/v2 v2.0.1
+	code.cloudfoundry.org/go-log-cache/v2 v2.0.2
 	code.cloudfoundry.org/go-loggregator/v9 v9.0.5
 	github.com/alecthomas/kingpin/v2 v2.3.2
 	github.com/cloudfoundry-community/go-cfclient/v2 v2.0.0
